@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/variables.scss";
+
+@import "./assets/scss/forms.scss";
+@import "./assets/scss/buttons.scss";
+
+body {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}

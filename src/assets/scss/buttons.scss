@@ -1,0 +1,26 @@
+.btn {
+    background-color: $color-accent;
+    border: 0;
+    border-radius: $bdrs;
+    padding: 11px $sp * 3;
+    min-width: 180px;
+
+    color: white;
+
+    // font-family: SF Pro Text;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+
+    &--left {
+        justify-content: flex-start;
+    }
+
+    &--right {
+        justify-content: flex-end;
+    }
+}

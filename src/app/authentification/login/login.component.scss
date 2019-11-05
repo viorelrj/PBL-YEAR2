@@ -1,0 +1,21 @@
+
+@import "../../../assets/scss/variables.scss";
+
+.login {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    &__self {
+        background-color: white;
+        box-shadow: $shadow-1;
+        padding: $sp * 3;
+
+        // border: 1px solid $color-neutral-5;
+        border-radius: $bdrs;
+    }
+}
+

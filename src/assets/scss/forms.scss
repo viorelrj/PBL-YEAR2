@@ -1,0 +1,19 @@
+.input {
+    display: block;
+
+    padding: 14px $sp * 2; 
+    margin-bottom: $sp * 3;
+
+    min-width: 300px;
+
+    background-color: white;
+    border: 1px solid $color-neutral-4;
+    border-radius: $bdrs;
+    outline: none;
+
+    transition: border-color .15s ease;
+
+    &:focus {
+        border-color: $color-accent;
+    }
+}
