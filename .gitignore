@@ -1,18 +1,18 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+frontend/dist
+frontend/tmp
+frontend/out-tsc
 # Only exists if Bazel was run
-/bazel-out
+frontend/bazel-out
 
 # dependencies
-/node_modules
+frontend/node_modules/
 
 # profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+frontend/chrome-profiler-events*.json
+frontend/speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
@@ -44,3 +44,76 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+
+
+#backend
+
+# User-specific stuff
+backend/idea/**/workspace.xml
+backend/idea/**/tasks.xml
+backend/idea/**/usage.statistics.xml
+backend/idea/**/dictionaries
+backend/idea/**/shelf
+
+# Generated files
+backend/idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+backend/idea/**/dataSources/
+backend/idea/**/dataSources.ids
+backend/idea/**/dataSources.local.xml
+backend/idea/**/sqlDataSources.xml
+backend/idea/**/dynamic.xml
+backend/idea/**/uiDesigner.xml
+backend/idea/**/dbnavigator.xml
+
+# Gradle
+backend/idea/**/gradle.xml
+backend/idea/**/libraries
+
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/artifacts
+# .idea/compiler.xml
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+# *.iml
+# *.ipr
+
+# CMake
+backend/cmake-build-*/
+
+# Mongo Explorer plugin
+backend/idea/**/mongoSettings.xml
+
+# File-based project format
+backend/*.iws
+
+# IntelliJ
+backend/out/
+
+# mpeltonen/sbt-idea plugin
+backend/.idea_modules/
+
+# JIRA plugin
+backend/atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+backend/idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+backend/com_crashlytics_export_strings.xml
+backend/crashlytics.properties
+backend/crashlytics-build.properties
+backend/fabric.properties
+
+# Editor-based Rest Client
+backend/idea/httpRequests
+
+# Android studio 3.1+ serialized cache file
+backend/idea/caches/build_file_checksums.ser
