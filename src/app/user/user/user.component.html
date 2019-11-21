@@ -1,0 +1,44 @@
+<div class="card__wrapper">
+    <div class="card__self">
+        <div class="card__sidebar">
+            <div class="card__row">
+                <div class="user__avatar-wrapper">
+                    <img class="user__avatar" src="{{userData.avatarURL}}" alt="Your avatar">
+                </div>
+            </div>
+            <div class="card__row">
+                <h2 class="h1">
+                    {{userData.firstName}}
+                <br>
+                    {{userData.lastName}}
+                </h2>
+            </div>
+        </div>
+        <div class="card__content">
+            <div class="card__row">
+                <div class="form-group">
+                    <label class="form-group__label" for="input__first-name">
+                        <h3>Your First Name</h3>
+                    </label>
+                    <input id='input__first-name' type="text" placeholder="{{userData.firstName}}" class="input">
+                </div>
+            </div>
+            <div class="card__row">
+                <div class="form-group">
+                    <label class="form-group__label" for="input__last-name">
+                        <h3>Your Last Name</h3>
+                    </label>
+                    <input id="input__last-name" type="text" placeholder={{userData.lastName}} class="input">
+                </div>
+            </div>
+            <div class="card__row">
+                <div class="form-group">
+                    <label class="form-group__label" for="input__password">
+                        <h3>Your Password</h3>
+                    </label>
+                    <input id="input__password" type="password" placeholder="It's a total secret" class="input">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

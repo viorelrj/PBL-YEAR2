@@ -1,0 +1,23 @@
+@import '../../../assets/scss/bundle.scss';
+
+.user {
+    &__avatar-wrapper {
+        height: $sp * 10;
+        width: $sp * 10;
+        border-radius: 50%;
+
+        overflow: hidden;
+        position: relative;
+
+        box-shadow: $shadow-2;
+    }
+
+    &__avatar {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        max-height: 150%;
+        min-width: 100%;
+        transform: translate(-50%, -50%);
+    }
+}

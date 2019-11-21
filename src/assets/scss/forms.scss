@@ -17,3 +17,11 @@
         border-color: $color-accent;
     }
 }
+
+.form-group {
+
+    &__label {
+        display: block;
+        margin-bottom: $sp;
+    }
+}

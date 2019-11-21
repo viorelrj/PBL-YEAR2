@@ -4,13 +4,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegistrationComponent } from './authentification/registration/registration.component';
 import { AuthentificationSuccessComponent } from './authentification/authentification-success/authentification-success.component';
+import { UserComponent } from './user/user/user.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
-  {path: 'login-success', component: AuthentificationSuccessComponent},
-  {path: 'register-success', component: AuthentificationSuccessComponent},
+  {path: 'login-success', component: UserComponent},
+  {path: 'register-success', component: UserComponent},
+  {path: 'user', component: UserComponent},
   {path: '**', component: AppComponent}
 ];
 
