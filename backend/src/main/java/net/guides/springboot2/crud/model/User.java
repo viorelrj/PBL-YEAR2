@@ -1,31 +1,30 @@
 package net.guides.springboot2.crud.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "Users")
-public class User {
+@AttributeOverride(name="id", column=@Column(name = "ID"))
+@Table(name = "users")
+public class User implements Serializable {
 
     private long id;
     private String firstName;
     private String lastName;
     private String emailId;
     private String Username;
+    private String password;
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String emailId, String Username) {
+    public User(String firstName, String lastName, String emailId, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
-        this.Username = Username;
+        this.Username = username;
+        this.password = password;
     }
 
     @Id
@@ -37,7 +36,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "First_Name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -45,7 +44,7 @@ public class User {
         this.firstName = firstName;
     }
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "Last_Name", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -53,7 +52,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Column(name = "email_address", nullable = false)
+    @Column(name = "Mail", nullable = false)
     public String getEmailId() {
         return emailId;
     }
@@ -61,9 +60,13 @@ public class User {
         this.emailId = emailId;
     }
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "Username", nullable = false)
     public String getUsername(){return Username;}
     public void setUsername(String Username) { this.Username = Username; }
+
+    @Column(name = "Password", nullable = false)
+    public String getPassword(){return password;}
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
