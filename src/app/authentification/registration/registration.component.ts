@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { AuthentificationService } from '../../../core/services/authentification.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   constructor(
     private authService: AuthentificationService,
@@ -18,11 +18,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  async onSubmit(f: NgForm) {
-    this.authService.logIn(f.value)
-    .subscribe(data => {
-      this.authService.updateLoggedState(true, f.value.username, data);
-    })
+  onSubmit(f: NgForm) {
+    this.authService.register(f.value)
+      .subscribe(() => this.router.navigate(['register-success']));
   }
 
 }

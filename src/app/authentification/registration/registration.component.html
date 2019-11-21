@@ -1,0 +1,19 @@
+<div class="card__wrapper">
+    <div class="card__self">
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <h1 class="h1">Register</h1>
+            <input class="input" placeholder="First Name" ngModel required name="firstName" #firstName="ngModel" type="text">
+            <input class="input" placeholder="Last Name" ngModel required name="lastName" #lastName="ngModel" type="text">
+            <input class="input" placeholder="Email" ngModel required name="emailId" #emailId="ngModel" type="email">
+            <input class="input" placeholder="Username" ngModel required name="username" #username="ngModel" type="text">
+            <input class="input" placeholder="Password" ngModel required name="password" #password="ngModel" type="password">
+            <input class="input" placeholder="Confirm Password" ngModel required name="password" #password="ngModel" type="password">
+            <div class="btn-wrapper btn-wrapper--right">
+                <button class="btn btn--full-wd">Join ❤️️</button>
+            </div>
+            <a class="plain-anchor u-align-center" [routerLink]="['/login']">
+                Already have an account?
+            </a>
+        </form>
+    </div>
+</div>

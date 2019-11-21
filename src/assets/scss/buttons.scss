@@ -6,15 +6,28 @@
     min-width: 180px;
 
     color: white;
+    text-decoration: none;
+    font-family: sans-serif;
 
     // font-family: SF Pro Text;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: $sp * 2;
+    line-height: $sp * 3;
+    
+    &--full-wd {
+        width: 100%;
+    }
+
+    &--ghost {
+        background: none;
+        color: $color-neutral-2;
+    }
 }
 
 .btn-wrapper {
     display: flex;
     justify-content: center;
+
+    margin-bottom: $sp * 2;
 
     &--left {
         justify-content: flex-start;

@@ -1,0 +1,20 @@
+.card {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        background-image: url('https://images.unsplash.com/photo-1551909340-a4ddbbe77882?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80');
+        background-size: cover;
+    }
+
+    &__self {
+        background-color: white;
+        box-shadow: $shadow-3;
+        padding: $sp * 3;
+
+        border: 1px solid $color-neutral-5;
+        border-radius: $bdrs;
+    }
+}

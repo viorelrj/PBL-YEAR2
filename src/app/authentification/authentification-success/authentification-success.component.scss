@@ -1,6 +1,11 @@
 @import "../../../assets/scss/variables.scss";
 @import "../../../assets/scss/reset.scss";
-@import "../../../assets/scss/type.scss";
 @import "../../../assets/scss/card.scss";
 @import "../../../assets/scss/forms.scss";
 @import "../../../assets/scss/buttons.scss";
+
+.card {
+    &__self {
+        min-width: 334px;
+    }
+}
