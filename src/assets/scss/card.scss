@@ -45,4 +45,9 @@
         display: flex;
         justify-content: center;
     }
+
+    &__title {
+        margin-top: #{-$card-padding};
+        margin-bottom: $sp * 5;
+    }
 }

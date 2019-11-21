@@ -15,30 +15,36 @@
             </div>
         </div>
         <div class="card__content">
-            <div class="card__row">
-                <div class="form-group">
-                    <label class="form-group__label" for="input__first-name">
-                        <h3>Your First Name</h3>
-                    </label>
-                    <input id='input__first-name' type="text" placeholder="{{userData.firstName}}" class="input">
+            <h2 class="h1 card__title">Update your profile</h2>
+            <form action="">
+                <div class="card__row">
+                    <div class="form-group">
+                        <label class="form-group__label" for="input__first-name">
+                            <h3>Your First Name</h3>
+                        </label>
+                        <input id='input__first-name' type="text" placeholder="{{userData.firstName}}" class="input">
+                    </div>
                 </div>
-            </div>
-            <div class="card__row">
-                <div class="form-group">
-                    <label class="form-group__label" for="input__last-name">
-                        <h3>Your Last Name</h3>
-                    </label>
-                    <input id="input__last-name" type="text" placeholder={{userData.lastName}} class="input">
+                <div class="card__row">
+                    <div class="form-group">
+                        <label class="form-group__label" for="input__last-name">
+                            <h3>Your Last Name</h3>
+                        </label>
+                        <input id="input__last-name" type="text" placeholder={{userData.lastName}} class="input">
+                    </div>
                 </div>
-            </div>
-            <div class="card__row">
-                <div class="form-group">
-                    <label class="form-group__label" for="input__password">
-                        <h3>Your Password</h3>
-                    </label>
-                    <input id="input__password" type="password" placeholder="It's a total secret" class="input">
+                <div class="card__row">
+                    <div class="form-group">
+                        <label class="form-group__label" for="input__password">
+                            <h3>Your Password</h3>
+                        </label>
+                        <input id="input__password" type="password" placeholder="It's a total secret" class="input">
+                    </div>
                 </div>
-            </div>
+                <div class="btn-wrapper btn-wrapper--right">
+                    <button class="btn">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

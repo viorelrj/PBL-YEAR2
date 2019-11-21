@@ -29,6 +29,10 @@
 
     margin-bottom: $sp * 2;
 
+    &:last-cild {
+        margin-bottom: 0;
+    }
+
     &--left {
         justify-content: flex-start;
     }

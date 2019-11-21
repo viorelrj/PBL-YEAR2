@@ -2,6 +2,8 @@
 
 .user {
     &__avatar-wrapper {
+        margin-bottom: $sp * 2;
+
         height: $sp * 10;
         width: $sp * 10;
         border-radius: 50%;
@@ -10,6 +12,9 @@
         position: relative;
 
         box-shadow: $shadow-2;
+
+        border: 2px solid $color-blue--25;
+        box-shadow: 0 $sp * .5 $sp * 3 rgba($color-blue--25, .5);
     }
 
     &__avatar {

@@ -40,8 +40,9 @@ export class AuthentificationService {
   }
 
   logIn(loginData: LoginObjectModel) {
+    console.log('logging in')
     return this.http.post(
-      this.apiURL + 'user',
+      this.apiURL + 'users/login',
       loginData,
       {
         headers: {
@@ -53,7 +54,7 @@ export class AuthentificationService {
 
   register(obj) {
     return this.http.post(
-      this.apiURL + 'users',
+      this.apiURL + 'user',
       obj,
       {
         headers: {
