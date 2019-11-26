@@ -36,19 +36,15 @@ export class AuthentificationService {
     this.state.isLoggedIn = isLoggedIn;
     this.state.userName = login;
     // this.state.sessionToken = sessionToken;
-    console.log('hey');
   }
 
   logIn(loginData: LoginObjectModel) {
-    console.log('logging in')
     return this.http.post(
       this.apiURL + 'users/login',
-      loginData,
       {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
+        "username": "Aleg",
+        "password": "samueljackson"
+      },
     );
   }
 

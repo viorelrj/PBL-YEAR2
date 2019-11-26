@@ -5,6 +5,7 @@ import { LoginComponent } from './authentification/login/login.component';
 import { RegistrationComponent } from './authentification/registration/registration.component';
 import { AuthentificationSuccessComponent } from './authentification/authentification-success/authentification-success.component';
 import { UserComponent } from './user/user/user.component';
+import { ListComponent } from './restaurants/list/list.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'login-success', component: UserComponent},
   {path: 'register-success', component: UserComponent},
   {path: 'user', component: UserComponent},
+  {path: 'list', component: ListComponent},
   {path: '**', component: AppComponent}
 ];
 

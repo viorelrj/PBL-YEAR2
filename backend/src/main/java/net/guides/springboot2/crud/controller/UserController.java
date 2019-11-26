@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:9000")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
@@ -30,7 +30,6 @@ public class UserController {
     @PostMapping("/users/login")
     @CrossOrigin(origins = "http://localhost:4200/")
     public User login(@RequestBody User user){
-        System.out.println("Attempt to log in");
         User usertemp = userRepository.findByPassword(user.getPassword());
         if(usertemp.getUsername().equals(user.getUsername())){
             return usertemp;
