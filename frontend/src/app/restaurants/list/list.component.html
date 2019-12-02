@@ -1,5 +1,24 @@
 <div class="card__wrapper">
     <div class="card__self">
-        <h1 class="h1">You can book at these restaurants:</h1>
+        <div class="card__content">
+            <h1 class="h1">We currently feature these restaurants:</h1>
+            <table class="restaruant-list">
+                <tr *ngFor="let restaurant of restaurantList" class="restaurant-list__row">
+                    <td class="restaurant-list__cell">{{restaurant.name}}</td>
+                    <td class="restaurant-list__cell">{{restaurant.address}}</td>
+                    <!-- <td class="restaurant-list__cell">
+                        <a href="mailto:{{restaurant.mail}}">{{restaurant.mail}}</a>
+                    </td> -->
+                    <!-- <td class="restaurant-list__cell">
+                        <a href="tel:{{restaurant.phone}}">{{restaurant.phone}}</a>
+                    </td> -->
+                    <td class="restaurant-list__cell">
+                        <a [routerLink]="['restaurant', restaurant.id]" class="btn restaurant-list__link">See Details</a>
+                    </td>
+                    <!-- <td class="restaurant-list__cell">{{restaurant.id}}</td>
+                    <td class="restaurant-list__cell">{{restaurant.password}}</td> -->
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

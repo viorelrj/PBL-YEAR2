@@ -39,13 +39,20 @@ export class AuthentificationService {
   }
 
   logIn(loginData: LoginObjectModel) {
+    console.log(loginData)
     return this.http.post(
       this.apiURL + 'users/login',
       {
-        "username": "Aleg",
-        "password": "samueljackson"
-      },
-    );
+        username: loginData.login,
+        password: loginData.password
+      }
+    )
+  }
+
+  getUserData(id) {
+    return this.http.get(
+      this.apiURL + 'users/' + id
+    )
   }
 
   register(obj) {

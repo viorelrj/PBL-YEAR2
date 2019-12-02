@@ -9,7 +9,6 @@ import { AuthentificationService } from '../../../core/services/authentification
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   constructor(
     private authService: AuthentificationService,
     private router: Router
@@ -20,9 +19,10 @@ export class LoginComponent implements OnInit {
 
   async onSubmit(f: NgForm) {
     this.authService.logIn(f.value)
-    .subscribe(data => {
-      this.authService.updateLoggedState(true, f.value.username, data);
-    })
+    .subscribe(
+      data => this.router.navigate(['user', data.id]),
+      error => this.router.navigate(['login'])
+    )
   }
 
 }

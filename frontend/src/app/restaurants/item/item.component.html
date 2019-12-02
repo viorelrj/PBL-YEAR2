@@ -1,0 +1,17 @@
+<div class="card__wrapper">
+    <div class="card__self">
+        <div class="card__content">
+            <h1 class="h1">Hey, we are {{restaurant.name}}!</h1>
+            <div class="card__row card__row--left restaurant__address">
+                <p>You cand find us at {{restaurant.address}}</p>
+            </div>
+            <div class="card__row card__row--left restaurant__contacts">
+                <a class="restaurant__contact" href="mailto:{{restaurant.mail}}">Send an email</a>
+                <a class="restaurant__contact" href="tel:{{restaurant.phone}}">Call us</a>
+            </div>
+            <div class="card__row card__row--left">
+                <a [routerLink]="['order']" class="btn">Order</a>
+            </div>
+        </div>
+    </div>
+</div>

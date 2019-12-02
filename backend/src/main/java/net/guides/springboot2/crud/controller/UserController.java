@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,16 +26,14 @@ public class UserController {
         return userRepository.findAll();
     }
 
-
-
     @PostMapping("/users/login")
-    @CrossOrigin(origins = "http://localhost:4200/")
     public User login(@RequestBody User user){
-        User usertemp = userRepository.findByPassword(user.getPassword());
-        if(usertemp.getUsername().equals(user.getUsername())){
+        User usertemp = userRepository.findByUsername(user.getUsername());
+        if(usertemp.getPassword().equals(user.getPassword()) && usertemp.getUsername().equals(user.getUsername())){
             return usertemp;
+        } else {
+            return null;
         }
-        return null;
     }
 
     @GetMapping("/users/{id}")

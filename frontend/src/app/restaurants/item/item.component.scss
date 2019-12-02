@@ -1,0 +1,18 @@
+@import '../../../assets/scss/bundle.scss';
+
+.restaurant {
+    &__address {
+        margin-bottom: $sp * 2;
+    }
+
+    &__contacts {
+        display: block;
+
+        margin-bottom: $sp * 2;
+    }
+
+    &__contact {
+        display: block;
+        margin-bottom: $sp * .5;
+    }
+}

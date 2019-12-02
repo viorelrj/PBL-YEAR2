@@ -3,7 +3,7 @@
         <div class="card__sidebar">
             <div class="card__row">
                 <div class="user__avatar-wrapper">
-                    <img class="user__avatar" src="{{userData.avatarURL}}" alt="Your avatar">
+                    <img class="user__avatar" src="https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/people/cover_images/samuel_l_jackson-gt.jpg?itok=Ydcq5zWL&c=4eef40883dad65bfd37e02e25c172670" alt="Your avatar">
                 </div>
             </div>
             <div class="card__row">
@@ -22,6 +22,7 @@
                         <label class="form-group__label" for="input__first-name">
                             <h3>Your First Name</h3>
                         </label>
+                        
                         <input id='input__first-name' type="text" placeholder="{{userData.firstName}}" class="input">
                     </div>
                 </div>
@@ -38,7 +39,7 @@
                         <label class="form-group__label" for="input__last-name">
                             <h3>Your Username</h3>
                         </label>
-                        <input id="input__username" type="text" placeholder="Your username" class="input">
+                        <input id="input__username" type="text" placeholder={{userData.username}} class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -46,7 +47,7 @@
                         <label class="form-group__label" for="input__last-name">
                             <h3>Your Email</h3>
                         </label>
-                        <input id="input__username" type="email" placeholder="Your email" class="input">
+                        <input id="input__username" type="email" placeholder={{userData.emailId}} class="input">
                     </div>
                 </div>
                 <div class="card__row">

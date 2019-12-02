@@ -1,4 +1,5 @@
 .btn {
+    display: inline-block;
     background-color: $color-accent;
     border: 0;
     border-radius: $bdrs;
@@ -8,7 +9,7 @@
     color: white;
     text-decoration: none;
     font-family: sans-serif;
-
+    text-align: center;
     // font-family: SF Pro Text;
     font-size: $sp * 2;
     line-height: $sp * 3;

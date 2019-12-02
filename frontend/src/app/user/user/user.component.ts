@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { AuthentificationService } from '../../../core/services/authentification.service';
 
 @Component({
   selector: 'app-user',
@@ -6,18 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  id: String;
+  userData = {} ;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthentificationService
+  ) { }
 
-  userData = {
-    avatarURL: 'https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/people/cover_images/samuel_l_jackson-gt.jpg?itok=Ydcq5zWL&c=4eef40883dad65bfd37e02e25c172670',
-    firstName: 'Samuel L.',
-    lastName: 'Jackson',
-  }
 
 
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get("id");
+    // this.authService.get`(this.id)
+    this.authService.getUserData(this.id)
+    .subscribe(res => this.userData = res)
   }
-
 }
