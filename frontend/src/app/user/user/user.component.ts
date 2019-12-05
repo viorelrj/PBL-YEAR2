@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { AuthentificationService } from '../../../core/services/authentification.service';
+
+import { LoginResponseModel } from '../../../core/models/authentification-model';
 
 @Component({
   selector: 'app-user',
@@ -9,20 +12,24 @@ import { AuthentificationService } from '../../../core/services/authentification
 })
 export class UserComponent implements OnInit {
   id: String;
-  userData = {} ;
+  public userData = null as LoginResponseModel;
+  
 
   constructor(
     private route: ActivatedRoute,
     private authService: AuthentificationService
   ) { }
 
-
-
-
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
-    // this.authService.get`(this.id)
     this.authService.getUserData(this.id)
-    .subscribe(res => this.userData = res)
+    .subscribe((res:LoginResponseModel) => this.userData = res);
+  }
+
+  public onSubmit(f: NgForm) {
+    console.log(f.value);
+    console.log('sending form');
+    this.authService.updateUserData(this.id, f.value)
+    .subscribe(res => console.log(res));
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {LoginObjectModel} from '../models/login-object-model';
+import {LoginObjectModel, LoginResponseModel} from '../models/authentification-model';
 
 
 @Injectable({
@@ -12,7 +12,7 @@ export class AuthentificationService {
     private http: HttpClient
   ) { }
 
-  private apiURL = 'http://localhost:8080/api/';
+  private apiURL = 'http://localhost:8080/api/users/';
 
   private state = {
     isLoggedIn: false,
@@ -20,15 +20,15 @@ export class AuthentificationService {
     sessionToken: null as String
   }
 
-  isLoggedIn() {
+  isLoggedIn(): Boolean {
     return this.state.isLoggedIn;
   }
 
-  getUserName() {
+  getUserName(): String {
     return this.state.userName;
   }
 
-  getSessionToken() {
+  getSessionToken(): String {
     return this.state.sessionToken;
   }
 
@@ -39,9 +39,8 @@ export class AuthentificationService {
   }
 
   logIn(loginData: LoginObjectModel) {
-    console.log(loginData)
-    return this.http.post(
-      this.apiURL + 'users/login',
+    return this.http.post<LoginResponseModel>(
+      this.apiURL + 'login',
       {
         username: loginData.login,
         password: loginData.password
@@ -50,14 +49,14 @@ export class AuthentificationService {
   }
 
   getUserData(id) {
-    return this.http.get(
-      this.apiURL + 'users/' + id
+    return this.http.get<LoginResponseModel>(
+      this.apiURL + id
     )
   }
 
   register(obj) {
     return this.http.post(
-      this.apiURL + 'user',
+      this.apiURL + 'users',
       obj,
       {
         headers: {
@@ -65,5 +64,17 @@ export class AuthentificationService {
         }
       }
     )
+  }
+
+  updateUserData(id, formObject) {
+    for (var propName in formObject) { 
+      if (formObject[propName] === "") {
+        delete formObject[propName];
+      }
+    }
+    return this.http.put(
+      this.apiURL + id,
+      formObject
+    );
   }
 }
