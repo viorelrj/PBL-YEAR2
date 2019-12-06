@@ -18,11 +18,14 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(f: NgForm) {
+
     this.authService.logIn(f.value)
     .subscribe(
-      data => this.router.navigate(['user', data.id]),
+      data => {
+        this.authService.saveUser(data)
+        this.router.navigate(['list'])
+      },
       error => this.router.navigate(['login'])
     )
   }
-
 }

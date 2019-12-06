@@ -20,12 +20,18 @@ export class AuthentificationService {
     sessionToken: null as String
   }
 
+  private userData: LoginResponseModel;
+
   isLoggedIn(): Boolean {
     return this.state.isLoggedIn;
   }
 
   getUserName(): String {
     return this.state.userName;
+  }
+
+  getSessionUserId(): number {
+    return this.userData.id;
   }
 
   getSessionToken(): String {
@@ -39,6 +45,7 @@ export class AuthentificationService {
   }
 
   logIn(loginData: LoginObjectModel) {
+
     return this.http.post<LoginResponseModel>(
       this.apiURL + 'login',
       {
@@ -46,6 +53,10 @@ export class AuthentificationService {
         password: loginData.password
       }
     )
+  }
+
+  saveUser(user: LoginResponseModel) {
+    this.userData = user;
   }
 
   getUserData(id) {

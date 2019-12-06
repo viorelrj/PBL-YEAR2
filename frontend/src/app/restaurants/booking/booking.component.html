@@ -1,0 +1,18 @@
+<div class="card__wrapper">
+    <div class="card__self">
+        <form #bookingForm="ngForm" (ngSubmit)="onSubmit(bookingForm)">
+            <h1 class="h1">Book a Table</h1>
+            <input ngModel required #firstName="ngModel" class="input" type="text" name="firstName" placeholder="First Name">
+            <input ngModel required #lastName="ngModel" class="input" type="text" name="lastName" placeholder="Last Name">
+            <input ngModel required #phone="ngModel" class="input" type="tel" name="phone" placeholder="Phone Number">
+            No. of seats 
+            <input ngModel required #nrOfSeats="ngModel" class="input" type="number" name="nrOfSeats" placeholder="">
+            Booking Time 
+            <input ngModel required #bookingDay="ngModel" class="input" type="date" name="bookingDay" placeholder="">
+            <input ngModel required #bookingHour="ngModel" class="input" type="time" name="bookingHour" placeholder="">
+            <div class="btn-wrapper btn-wrapper--right">
+                <button class="btn btn--full-wd">Book it</button>
+            </div>
+        </form>
+    </div>
+</div>
