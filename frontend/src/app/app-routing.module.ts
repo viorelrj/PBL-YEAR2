@@ -11,17 +11,20 @@ import { ItemComponent } from './restaurants/item/item.component';
 import { BookingComponent } from './restaurants/booking/booking.component';
 
 
+// const routes: Routes = [
+//   {path: 'login-success', component: ListComponent},
+//   {path: 'register-success', component: UserComponent},
+//   {path: 'user/:id', component: UserComponent},
+//   {path: 'user/:id/bookings', component: OrdersComponent},
+//   {path: 'list', component: ListComponent},
+//   {path: 'list/restaurant/:id', component: ItemComponent},
+//   {path: 'list/restaurant/:id/book', component: BookingComponent},
+//   {path: '**', component: AppComponent}
+// ];
+
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegistrationComponent},
-  {path: 'login-success', component: ListComponent},
-  {path: 'register-success', component: UserComponent},
-  {path: 'user/:id', component: UserComponent},
-  {path: 'user/:id/bookings', component: OrdersComponent},
-  {path: 'list', component: ListComponent},
-  {path: 'list/restaurant/:id', component: ItemComponent},
-  {path: 'list/restaurant/:id/book', component: BookingComponent},
-  {path: '**', component: AppComponent}
+  { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(mod => mod.AuthentificationModule) },
+  { path: 'user', loadChildren: () => import('./user/user.module').then(mod => mod.UserModule) }
 ];
 
 @NgModule({

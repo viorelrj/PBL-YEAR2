@@ -26,6 +26,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/users/login")
     public User login(@RequestBody User user){
         User usertemp = userRepository.findByUsername(user.getUsername());
@@ -68,7 +69,7 @@ public class UserController {
     public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId)
             throws ResourceNotFoundException {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("Employe   e not found for this id :: " + userId));
 
         userRepository.delete(user);
         Map<String, Boolean> response = new HashMap<>();

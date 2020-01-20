@@ -12,7 +12,7 @@ export class AuthentificationService {
     private http: HttpClient
   ) { }
 
-  private apiURL = 'http://localhost:8080/api/users/';
+  private apiURL = 'http://localhost:8080/api/';
 
   private state = {
     isLoggedIn: false,
@@ -52,7 +52,7 @@ export class AuthentificationService {
         username: loginData.login,
         password: loginData.password
       }
-    )
+    );
   }
 
   saveUser(user: LoginResponseModel) {
@@ -74,7 +74,7 @@ export class AuthentificationService {
           'Content-Type': 'application/json'
         }
       }
-    )
+    );
   }
 
   updateUserData(id, formObject) {

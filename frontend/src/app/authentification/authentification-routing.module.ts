@@ -7,7 +7,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 
 const routes: Routes = [
     {
-        path: 'auth',
+        path: '',
         component: AuthentificationComponent,
         children: [
             {
@@ -17,10 +17,11 @@ const routes: Routes = [
             {
                 path: 'register',
                 component: RegistrationComponent
-            },
+            }
         ]
     }
 ];
+
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
