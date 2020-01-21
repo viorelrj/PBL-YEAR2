@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsService } from '../../../core/services/restaurants.service';
+import { AuthentificationService } from '@service/authentification.service';
 
 @Component({
   selector: 'app-list',

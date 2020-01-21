@@ -6,20 +6,18 @@ import { AuthentificationComponent } from './authentification.component';
 
 
 const routes: Routes = [
-
-            {
-                path: 'login',
-                component: LoginComponent
-            },
-            {
-                path: 'register',
-                component: RegistrationComponent
-            },
-            {
-                path: '**',
-                component: RegistrationComponent
-            }
-    
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegistrationComponent
+    },
+    {
+        path: '**',
+        component: LoginComponent
+    }
 ];
 
 
