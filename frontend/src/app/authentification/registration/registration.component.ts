@@ -20,7 +20,8 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     this.authService.register(f.value)
-      .subscribe(() => this.router.navigate(['register-success']));
+      .subscribe((re) => console.log(re));
+      // .subscribe(() => this.router.navigate(['register-success']));
   }
 
 }

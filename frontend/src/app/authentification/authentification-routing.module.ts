@@ -8,7 +8,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 const routes: Routes = [
     {
         path: '',
-        component: AuthentificationComponent,
+        component: LoginComponent,
         children: [
             {
                 path: 'login',

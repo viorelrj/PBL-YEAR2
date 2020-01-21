@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(f.value)
     .subscribe(
       data => {
-        this.authService.saveUser(data)
-        this.router.navigate(['list'])
+        this.authService.saveUser(data);
       },
       error => this.router.navigate(['login'])
     )

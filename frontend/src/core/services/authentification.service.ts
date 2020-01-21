@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-import {LoginObjectModel, LoginResponseModel} from '../models/authentification-model';
+import {LoginObjectModel, LoginResponseModel, RegistrationModel} from '../models/authentification-model';
+import { async } from '@angular/core/testing';
 
 
 @Injectable({
@@ -12,40 +14,42 @@ export class AuthentificationService {
     private http: HttpClient
   ) { }
 
-  private apiURL = 'http://localhost:8080/api/';
+  private apiURL = 'http://localhost:4200/api/users/';
 
   private state = {
     isLoggedIn: false,
-    userName: null as String,
-    sessionToken: null as String
-  }
+    userName: null as string,
+    sessionToken: null as string
+  };
 
   private userData: LoginResponseModel;
 
-  isLoggedIn(): Boolean {
+  isLoggedIn(): boolean {
     return this.state.isLoggedIn;
   }
 
-  getUserName(): String {
+  getUserName(): string {
     return this.state.userName;
+  }
+
+  fetchUserById(id: string): Observable<LoginResponseModel> {
+    return this.http.get<LoginResponseModel>(this.apiURL + `/${id}`);
   }
 
   getSessionUserId(): number {
     return this.userData.id;
   }
 
-  getSessionToken(): String {
+  getSessionToken(): string {
     return this.state.sessionToken;
   }
 
-  updateLoggedState(isLoggedIn, login, sessionToken) {
+  updateLoggedState(isLoggedIn, login) {
     this.state.isLoggedIn = isLoggedIn;
     this.state.userName = login;
-    // this.state.sessionToken = sessionToken;
   }
 
   logIn(loginData: LoginObjectModel) {
-
     return this.http.post<LoginResponseModel>(
       this.apiURL + 'login',
       {
@@ -57,24 +61,18 @@ export class AuthentificationService {
 
   saveUser(user: LoginResponseModel) {
     this.userData = user;
+    localStorage.setItem('userId', user.id.toString());
+    console.log(localStorage.getItem('userId'))
   }
 
   getUserData(id) {
     return this.http.get<LoginResponseModel>(
       this.apiURL + id
-    )
+    );
   }
 
-  register(obj) {
-    return this.http.post(
-      this.apiURL + 'users',
-      obj,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    );
+  register(obj: RegistrationModel) {
+    return this.http.post(this.apiURL, obj);
   }
 
   updateUserData(id, formObject) {
@@ -87,5 +85,24 @@ export class AuthentificationService {
       this.apiURL + id,
       formObject
     );
+  }
+
+  autoLoad() {
+    const promise = new Promise((resolve, reject) => {
+      if (!!!localStorage.getItem('userId')) {
+        resolve();
+      }
+
+      this.fetchUserById(localStorage.getItem('userId')).subscribe(
+        res => {
+          this.saveUser(res);
+          this.updateLoggedState(res.id, res.username);
+          resolve();
+        }
+      )
+    });
+
+
+    return promise;
   }
 }

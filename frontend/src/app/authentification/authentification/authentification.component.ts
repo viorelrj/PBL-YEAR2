@@ -11,5 +11,4 @@ export class AuthentificationComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

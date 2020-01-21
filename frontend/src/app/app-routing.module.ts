@@ -23,8 +23,10 @@ import { BookingComponent } from './restaurants/booking/booking.component';
 // ];
 
 const routes: Routes = [
+  { path: '', component: AppComponent},
   { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(mod => mod.AuthentificationModule) },
-  { path: 'user', loadChildren: () => import('./user/user.module').then(mod => mod.UserModule) }
+  { path: 'user', loadChildren: () => import('./user/user.module').then(mod => mod.UserModule) },
+  { path: 'restaurants', loadChildren: () => import('./restaurants/restaurants.module').then(mod => mod.RestaurantsModule) }
 ];
 
 @NgModule({
