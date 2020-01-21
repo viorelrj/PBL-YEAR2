@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthentificationModule} from './authentification/authentification.module';
 import { UserModule } from './user/user.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { SocketService } from '@service/socket.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
     UserModule,
     RestaurantsModule
   ],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

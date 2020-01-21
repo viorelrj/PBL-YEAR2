@@ -88,21 +88,24 @@ export class AuthentificationService {
   }
 
   autoLoad() {
-    const promise = new Promise((resolve, reject) => {
+    const self = this;
+
+    function resolver(resolve, reject) {
       if (!!!localStorage.getItem('userId')) {
-        resolve();
+        resolve(false);
+        return null;
       }
 
-      this.fetchUserById(localStorage.getItem('userId')).subscribe(
-        res => {
-          this.saveUser(res);
-          this.updateLoggedState(res.id, res.username);
-          resolve();
+      self.fetchUserById(localStorage.getItem('userId')).subscribe(
+        (res: LoginResponseModel) => {
+          self.saveUser(res);
+          self.updateLoggedState(res.id, res.username);
+          resolve(true);
+          return null;
         }
       )
-    });
+    }
 
-
-    return promise;
+    return new Promise(resolver);
   }
 }
