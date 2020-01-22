@@ -14,14 +14,15 @@ export class UserComponent implements OnInit {
   id: String;
   public userData = null as LoginResponseModel;
   
-
   constructor(
     private route: ActivatedRoute,
     private authService: AuthentificationService
   ) { }
 
-  ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get("id");
+  async ngOnInit() {
+    console.log('user')
+    const isAuthorized = await this.authService.ready();
+    this.id = this.authService.getSessionUserId().toString();
     this.authService.getUserData(this.id)
     .subscribe((res:LoginResponseModel) => this.userData = res);
   }
