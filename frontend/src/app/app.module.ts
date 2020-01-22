@@ -7,10 +7,12 @@ import { AuthentificationModule} from './authentification/authentification.modul
 import { UserModule } from './user/user.module';
 import { RestaurantsModule } from './restaurants/restaurants.module';
 import { SocketService } from '@service/socket.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

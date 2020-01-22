@@ -1,0 +1,28 @@
+@import 'assets/scss/bundle';
+
+.header {
+    position: relative;
+
+    &__item {
+        display: block;
+        padding: $sp * 4 0;
+        margin: 0 $sp;
+
+        color: $color-accent;
+        text-decoration: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .container {
+        display: flex;
+        padding: 0 $sp * 3;
+        margin: 0 auto;
+    }
+}
+
+:host {
+    height: auto;
+}

@@ -19,9 +19,22 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
+    let form = f.value;
+
+    for (let key in form) {
+      if (!form[key]) {
+        alert('All fields should be completed');
+        return null;
+      }
+    }
+
+    if (form.password !== form.confirmpassword) {
+      alert('Passwords should be matching');
+      return null;
+    }
+
     this.authService.register(f.value)
-      .subscribe((re) => console.log(re));
-      // .subscribe(() => this.router.navigate(['register-success']));
+    .subscribe((re) => this.router.navigate(['/restaurants']));
   }
 
 }
