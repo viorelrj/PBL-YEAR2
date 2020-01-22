@@ -1,0 +1,32 @@
+@import 'assets/scss/bundle.scss';
+
+.restaurant-list {
+    &__row {
+        &:nth-child(odd) {
+            background-color: $color-neutral-4;
+        }
+
+    }
+    &__cell {
+        // border-right: 1px solid $color-neutral-2;
+        padding: $sp $sp * 2;
+        margin: 8px 0;
+
+        &:last-child {
+            border: none;
+            border-radius: 0 $sp * 0.5 $sp * 0.5 0;
+        }
+
+        &:first-child {
+            border-radius: $sp * 0.5 0 0 $sp * 0.5;
+        }
+    }
+
+    &__link {
+        padding: 4px 8px;
+    }
+
+    &__head {
+        font-weight: 700;
+    }
+}

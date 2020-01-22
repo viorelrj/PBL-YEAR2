@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from '../../../core/services/booking.service';
+import { BookingService } from '@service/booking.service';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -14,7 +14,7 @@ export class OrdersComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private bookingService: BookingService
-		) { }
+	) { }
 
 	ngOnInit() {
 		this.id = this.route.snapshot.paramMap.get("id");

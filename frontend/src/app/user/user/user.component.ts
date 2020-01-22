@@ -27,8 +27,6 @@ export class UserComponent implements OnInit {
   }
 
   public onSubmit(f: NgForm) {
-    console.log(f.value);
-    console.log('sending form');
     this.authService.updateUserData(this.id, f.value)
     .subscribe(res => console.log(res));
   }

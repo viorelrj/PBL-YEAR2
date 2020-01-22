@@ -8,7 +8,7 @@ import { UserComponent } from './user/user/user.component';
 import { OrdersComponent } from './user/orders/orders.component';
 import { ListComponent } from './restaurants/list/list.component';
 import { ItemComponent } from './restaurants/item/item.component';
-import { BookingComponent } from './restaurants/booking/booking.component';
+import { BookingComponent } from './booking/booking/booking.component';
 
 
 // const routes: Routes = [
@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: '', component: AppComponent},
   { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(mod => mod.AuthentificationModule) },
   { path: 'user', loadChildren: () => import('./user/user.module').then(mod => mod.UserModule) },
-  { path: 'restaurants', loadChildren: () => import('./restaurants/restaurants.module').then(mod => mod.RestaurantsModule) }
+  { path: 'restaurants', loadChildren: () => import('./restaurants/restaurants.module').then(mod => mod.RestaurantsModule) },
+  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(mod => mod.BookingModule)}
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { BookingRequestModel, BookingFormRequestModel } from '../models/booking-
   providedIn: 'root'
 })
 export class BookingService {
-	private apiURL = 'http://localhost:8080/api';
+	private apiURL = 'http://localhost:4200/api';
 
 	constructor(
 		private http: HttpClient,
@@ -19,7 +19,7 @@ export class BookingService {
 		)
 	}
 
-	getUserBookings(userId) {
+	getUserBookings(userId: String) {
 		return this.http.get(
 			this.apiURL + '/users/'+userId+'/allBookings',
 		)

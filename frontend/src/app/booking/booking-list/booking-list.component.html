@@ -1,0 +1,25 @@
+<div class="card__wrapper">
+    <div class="card__self">
+        <div class="card__content">
+            <h1 class="h1">These are your bookings:</h1>
+            <table class="restaruant-list">
+                <thead>
+                    <tr>
+                        <th class="restaurant-list__cell restaurant-list__head">First Name</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Last Name</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Number of seats</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Registered phone</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Reserved at</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let item of bookingList" class="restaurant-list__row">
+                    <td class="restaurant-list__cell">{{item.firstName}}</td>
+                    <td class="restaurant-list__cell">{{item.lastName}}</td>
+                    <td class="restaurant-list__cell">{{item.nrOfSeats}}</td>
+                    <td class="restaurant-list__cell">{{item.phone}}</td>
+                    <td class="restaurant-list__cell">{{item.bookingHour}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

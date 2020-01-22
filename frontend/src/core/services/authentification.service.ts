@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import {LoginObjectModel, LoginResponseModel, RegistrationModel} from '../models/authentification-model';
 import { async } from '@angular/core/testing';
+import { ExternalPromise } from '@core/utils';
 
 
 @Injectable({
@@ -15,14 +16,21 @@ export class AuthentificationService {
   ) { }
 
   private apiURL = 'http://localhost:4200/api/users/';
-
+  
+  
   private state = {
+    authPromise: new ExternalPromise<Boolean>(),
     isLoggedIn: false,
+    ready: new ExternalPromise,
     userName: null as string,
     sessionToken: null as string
   };
 
   private userData: LoginResponseModel;
+
+  ready() {
+    return this.state.authPromise;
+  }
 
   isLoggedIn(): boolean {
     return this.state.isLoggedIn;
@@ -37,7 +45,7 @@ export class AuthentificationService {
   }
 
   getSessionUserId(): number {
-    return this.userData.id;
+    return 1;
   }
 
   getSessionToken(): string {
@@ -62,7 +70,6 @@ export class AuthentificationService {
   saveUser(user: LoginResponseModel) {
     this.userData = user;
     localStorage.setItem('userId', user.id.toString());
-    console.log(localStorage.getItem('userId'))
   }
 
   getUserData(id) {
@@ -89,23 +96,15 @@ export class AuthentificationService {
 
   autoLoad() {
     const self = this;
-
-    function resolver(resolve, reject) {
-      if (!!!localStorage.getItem('userId')) {
-        resolve(false);
-        return null;
-      }
-
-      self.fetchUserById(localStorage.getItem('userId')).subscribe(
-        (res: LoginResponseModel) => {
-          self.saveUser(res);
-          self.updateLoggedState(res.id, res.username);
-          resolve(true);
-          return null;
-        }
-      )
+    
+    if (!!!localStorage.getItem('userId')) {
+      self.state.authPromise.resolve(false);
+    } else {
+      self.fetchUserById(localStorage.getItem('userId')).subscribe((res: LoginResponseModel) => {
+        self.saveUser(res);
+        self.updateLoggedState(res.id, res.username);
+        this.state.authPromise.resolve(true);
+      })
     }
-
-    return new Promise(resolver);
   }
 }

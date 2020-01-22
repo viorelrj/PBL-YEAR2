@@ -16,15 +16,16 @@ export class SocketService {
     private location: Location
   ) { }
 
-  bootstrap() {
+  async bootstrap() {    
+    this.authService.autoLoad();
+    const userHasSave = await this.authService.ready();
+    
     if (this.location.path() != '') { return }
 
-    this.authService.autoLoad().then((userHasSave: boolean) => {
-      if (userHasSave) {
-        this.router.navigate(['restaurants'])
-      } else {
-        this.router.navigate(['auth', 'login'])
-      }
-    })
+    if (userHasSave) {
+      this.router.navigate(['restaurants'])
+    } else {
+      this.router.navigate(['auth', 'login'])
+    }
   }
 }
