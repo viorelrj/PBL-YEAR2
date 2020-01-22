@@ -5,19 +5,25 @@
             <table class="restaruant-list">
                 <thead>
                     <tr>
+                        <th class="restaurant-list__cell restaurant-list__head">Place</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Address</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Reserved at</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Number of seats</th>
                         <th class="restaurant-list__cell restaurant-list__head">First Name</th>
                         <th class="restaurant-list__cell restaurant-list__head">Last Name</th>
-                        <th class="restaurant-list__cell restaurant-list__head">Number of seats</th>
                         <th class="restaurant-list__cell restaurant-list__head">Registered phone</th>
-                        <th class="restaurant-list__cell restaurant-list__head">Reserved at</th>
+                        <th class="restaurant-list__cell restaurant-list__head">Actions</th>
                     </tr>
                 </thead>
-                <tr *ngFor="let item of bookingList" class="restaurant-list__row">
+                <tr *ngFor="let item of bookingList; let i = index" class="restaurant-list__row">
+                    <td class="restaurant-list__cell">{{item.name}}</td>
+                    <td class="restaurant-list__cell">{{item.address}}</td>
+                    <td class="restaurant-list__cell">{{item.bookingHour}}</td>
+                    <td class="restaurant-list__cell">{{item.nrOfSeats}}</td>
                     <td class="restaurant-list__cell">{{item.firstName}}</td>
                     <td class="restaurant-list__cell">{{item.lastName}}</td>
-                    <td class="restaurant-list__cell">{{item.nrOfSeats}}</td>
-                    <td class="restaurant-list__cell">{{item.phone}}</td>
-                    <td class="restaurant-list__cell">{{item.bookingHour}}</td>
+                    <td class="restaurant-list__cell"><a href="tel:{{item.phone}}">{{item.phone}}</a></td>
+                    <td class="restaurant-list__cell"><button (click)="removeBooking(i)">remove</button></td>
                 </tr>
             </table>
         </div>

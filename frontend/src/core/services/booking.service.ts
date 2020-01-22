@@ -24,4 +24,10 @@ export class BookingService {
 			this.apiURL + '/users/'+userId+'/allBookings',
 		)
 	}
+
+	removeBooking(id) {
+		return this.http.delete(
+			this.apiURL + `/bookings/${id}`
+		)
+	}
 }

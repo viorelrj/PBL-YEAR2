@@ -26,6 +26,8 @@ export class BookingComponent implements OnInit {
 
 	onSubmit(f: NgForm) {
 		let request = f.value;
+		
+
 		let userId = this.authService.getSessionUserId();
 		request.restaurantId = this.id;
 		request.bookingHour = request.bookingDay + ' ' + request.bookingHour;
@@ -33,6 +35,6 @@ export class BookingComponent implements OnInit {
 		request.userId = userId;
 		
 		this.bookingService.createBooking(request)
-		.subscribe(data => this.router.navigate(['user', userId, 'bookings']))
+		.subscribe(data => this.router.navigate(['/booking']))
 	}
 }

@@ -2,11 +2,6 @@
     <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)" *ngIf="userData" class="card__self">
         <div class="card__sidebar">
             <div class="card__row">
-                <div class="user__avatar-wrapper">
-                    <img class="user__avatar" src="https://www.goldenglobes.com/sites/default/files/styles/portrait_medium/public/people/cover_images/samuel_l_jackson-gt.jpg?itok=Ydcq5zWL&c=4eef40883dad65bfd37e02e25c172670" alt="Your avatar">
-                </div>
-            </div>
-            <div class="card__row">
                 <h2 class="h1">
                     {{userData.firstName}}
                 <br>
@@ -23,7 +18,7 @@
                             <h3>Your First Name</h3>
                         </label>
                         
-                        <input ngModel name="firstname" #firstname="ngModel" id='input__first-name' type="text" value={{userData.firstName}} class="input">
+                        <input ngModel name="firstName" #firstName="ngModel" [(ngModel)]="userData.firstName" id='input__first-name' type="text" value={{userData.firstName}} class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -31,7 +26,7 @@
                         <label class="form-group__label" for="input__last-name">
                             <h3>Your Last Name</h3>
                         </label>
-                        <input ngModel name="lastname" #lastname="ngModel" id="input__last-name" type="text" value={{userData.lastName}} class="input">
+                        <input ngModel name="lastName" #lastName="ngModel" id="input__last-name" type="text" [(ngModel)]="userData.lastName" class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -39,7 +34,7 @@
                         <label class="form-group__label" for="input__last-name">
                             <h3>Your Username</h3>
                         </label>
-                        <input ngModel name="username" #username="ngModel" id="input__username" type="text" value={{userData.username}} class="input">
+                        <input ngModel name="username" #username="ngModel" id="input__username" type="text" [(ngModel)]="userData.username" class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -47,7 +42,7 @@
                         <label class="form-group__label" for="input__last-name">
                             <h3>Your Email</h3>
                         </label>
-                        <input ngModel name="email" #email="ngModel" id="input__email" type="email" value={{userData.emailId}} class="input">
+                        <input ngModel name="emailId" #emailId="ngModel" id="input__email" type="email" [(ngModel)]="userData.emailId" class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -55,7 +50,7 @@
                         <label class="form-group__label" for="input__password">
                             <h3>Your Password</h3>
                         </label>
-                        <input ngModel name="password" #password="ngModel" id="input__password" type="password" placeholder="It's a total secret" class="input">
+                        <input ngModel name="password" #password="ngModel" id="input__password" type="password" [(ngModel)]="userData.password" placeholder="It's a total secret" class="input">
                     </div>
                 </div>
                 <div class="card__row">
@@ -63,7 +58,7 @@
                         <label class="form-group__label" for="input__confirm-password">
                             <h3>Confirm your Password</h3>
                         </label>
-                        <input ngModel name="confirmpassword" #confirmpassword="ngModel" id="input__confirm-password" type="password" placeholder="We won't tell anybody" class="input">
+                        <input ngModel name="confirmpassword" #confirmpassword="ngModel" id="input__confirm-password" type="password" [(ngModel)]="userData.confirmpassword" placeholder="We won't tell anybody" class="input">
                     </div>
                 </div>
                 <div class="btn-wrapper btn-wrapper--right">

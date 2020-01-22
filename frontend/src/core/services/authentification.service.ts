@@ -45,7 +45,7 @@ export class AuthentificationService {
   }
 
   getSessionUserId(): number {
-    return 1;
+    return this.userData.id;
   }
 
   getSessionToken(): string {
@@ -72,10 +72,8 @@ export class AuthentificationService {
     localStorage.setItem('userId', user.id.toString());
   }
 
-  getUserData(id) {
-    return this.http.get<LoginResponseModel>(
-      this.apiURL + id
-    );
+  getUserData() {
+    return this.userData;
   }
 
   register(obj: RegistrationModel) {
@@ -83,11 +81,8 @@ export class AuthentificationService {
   }
 
   updateUserData(id, formObject) {
-    for (var propName in formObject) { 
-      if (formObject[propName] === "") {
-        delete formObject[propName];
-      }
-    }
+    delete formObject.confirmpassword;
+    formObject.password = 'root1';
     return this.http.put(
       this.apiURL + id,
       formObject
@@ -95,14 +90,12 @@ export class AuthentificationService {
   }
 
   autoLoad() {
-    const self = this;
-    
     if (!!!localStorage.getItem('userId')) {
-      self.state.authPromise.resolve(false);
+      this.state.authPromise.resolve(false);
     } else {
-      self.fetchUserById(localStorage.getItem('userId')).subscribe((res: LoginResponseModel) => {
-        self.saveUser(res);
-        self.updateLoggedState(res.id, res.username);
+      this.fetchUserById(localStorage.getItem('userId')).subscribe((res: LoginResponseModel) => {
+        this.saveUser(res);
+        this.updateLoggedState(res.id, res.username);
         this.state.authPromise.resolve(true);
       })
     }

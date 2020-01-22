@@ -9,7 +9,7 @@ export class RestaurantsService {
     private http: HttpClient
   ) { }
 
-  private apiURL = 'http://localhost:8080/api/';
+  private apiURL = 'http://localhost:4200/api/';
 
   getList() {
     return this.http.get(

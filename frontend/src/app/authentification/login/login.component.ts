@@ -18,18 +18,13 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(f: NgForm) {
-    const isLoggedIn = await this.authService.ready();
-    if (this.authService.isLoggedIn()) {
-      // this.router.navigate(['']);
-    }
-
     this.authService.logIn(f.value)
     .subscribe(
       data => {
+        if (data === null) { return }
         this.authService.saveUser(data);
-        // this.router.navigate(['']);
+        this.router.navigate(['restaurants']);
       },
-      // error => this.router.navigate(['auth'])
     )
   }
 }
